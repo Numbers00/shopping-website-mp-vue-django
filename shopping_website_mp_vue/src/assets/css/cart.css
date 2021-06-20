@@ -1,0 +1,281 @@
+body {
+  color: #000;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #fff;
+  background-repeat: no-repeat;
+}
+
+.plus-minus {
+  position: relative;
+}
+
+.plus {
+  position: absolute;
+  top: -4px;
+  left: 2px;
+  cursor: pointer;
+}
+
+.minus {
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  cursor: pointer;
+}
+
+.vsm-text:hover {
+  color: #ff5252;
+}
+
+.book,
+.book-img {
+  width: 120px;
+  height: 180px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.book {
+  margin: 20px 20px 20px 15px;
+}
+
+.border-top {
+  border-top: 1px solid #eeeeee !important;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+
+.card {
+  margin: 40px 0px;
+  padding: 40px 50px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+input,
+textarea {
+  background-color: #f3e5f5;
+  padding: 8px 15px 8px 15px;
+  width: 100%;
+  border-radius: 5px !important;
+  box-sizing: border-box;
+  border: 1px solid #f3e5f5;
+  font-size: 15px !important;
+  color: #000 !important;
+  font-weight: 300;
+}
+
+input:focus,
+textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #9fa8da;
+  outline-width: 0;
+  font-weight: 400;
+}
+
+button:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+
+button {
+  display: inline-block;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 30px;
+  transition: background 0.75s;
+  margin-right: 10px;
+}
+
+.trash-btn {
+  background: #5d33d3;
+}
+
+button:hover {
+  background: black;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto 50px;
+  color: rgb(27, 26, 26);
+  line-height: 60px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.title::after {
+  content: "";
+  background: rgb(161, 85, 34);
+  width: 100px;
+  height: 4px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pay {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #673ab7;
+  margin: 10px 20px 10px 0px;
+  cursor: pointer;
+  box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.gray {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+  color: #e0e0e0;
+}
+
+.gray .pay {
+  box-shadow: none;
+}
+
+#tax {
+  border-top: 1px lightgray solid;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.btn-blue {
+  border: none;
+  border-radius: 10px;
+  background-color: #673ab7;
+  color: #fff;
+  padding: 8px 15px;
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+.btn-blue:hover {
+  background-color: #311b92;
+  color: #fff;
+}
+
+#checkout {
+  float: left;
+}
+
+#check-amt {
+  float: right;
+}
+
+@media screen and (max-width: 768px) {
+  .book,
+  .book-img {
+    width: 100px;
+    height: 150px;
+  }
+
+  .card {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .mob-text {
+    font-size: 13px;
+  }
+
+  .pad-left {
+    padding-left: 20px;
+  }
+}
+
+.bs4-order-tracking {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: #878788;
+  padding-left: 0px;
+  margin-top: 30px;
+}
+
+.bs4-order-tracking li {
+  list-style-type: none;
+  font-size: 15px;
+  width: 25%;
+  float: left;
+  position: relative;
+  font-weight: 400;
+  color: #878788;
+  text-align: center;
+}
+
+.bs4-order-tracking li:first-child:before {
+  margin-left: 15px !important;
+  padding-left: 11px !important;
+  text-align: left !important;
+}
+
+.bs4-order-tracking li:last-child:before {
+  margin-right: 5px !important;
+  padding-right: 11px !important;
+  text-align: right !important;
+}
+
+.bs4-order-tracking li > div {
+  color: #fff;
+  width: 29px;
+  text-align: center;
+  line-height: 29px;
+  display: block;
+  font-size: 12px;
+  background: #878788;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.bs4-order-tracking li:after {
+  content: "";
+  width: 150%;
+  height: 2px;
+  background: #878788;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 15px;
+  z-index: -1;
+}
+
+.bs4-order-tracking li:first-child:after {
+  left: 50%;
+}
+
+.bs4-order-tracking li:last-child:after {
+  left: 0% !important;
+  width: 0% !important;
+}
+
+.bs4-order-tracking li.active {
+  font-weight: bold;
+  color: #544bd3;
+}
+
+.bs4-order-tracking li.active > div {
+  background: #544bd3;
+}
+
+.bs4-order-tracking li.active:after {
+  background: #544bd3;
+}
+
+.card-timeline {
+  background-color: #fff;
+  z-index: 0;
+}

@@ -1,0 +1,10 @@
+.signup {
+  text-decoration: none;
+  color: white;
+  text-align: right;
+}
+
+.signup:hover {
+  text-decoration: none;
+  color: white;
+}

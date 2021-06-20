@@ -1,0 +1,156 @@
+body {
+  background: #f5f5f5;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
+.nav-pills .nav-link {
+  color: #555;
+}
+
+.nav-pills .nav-link.active {
+  color: white;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto 15px;
+  color: rgb(27, 26, 26);
+  line-height: 60px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.title::after {
+  content: "";
+  background: rgb(161, 85, 34);
+  width: 100px;
+  height: 4px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn {
+  display: inline-block;
+  background: #5d33d3;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 30px;
+  transition: background 0.75s;
+  float: right;
+}
+
+.btn:hover {
+  background: black;
+  color: white;
+}
+
+.bs4-order-tracking {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: #878788;
+  padding-left: 0px;
+  margin-top: 30px;
+}
+
+.bs4-order-tracking li {
+  list-style-type: none;
+  font-size: 12px;
+  width: 25%;
+  float: left;
+  position: relative;
+  font-weight: 400;
+  color: #878788;
+  text-align: center;
+}
+
+.bs4-order-tracking li:first-child:before {
+  margin-left: 15px !important;
+  padding-left: 11px !important;
+  text-align: left !important;
+}
+
+.bs4-order-tracking li:last-child:before {
+  margin-right: 5px !important;
+  padding-right: 11px !important;
+  text-align: right !important;
+}
+
+.bs4-order-tracking li > div {
+  color: #fff;
+  width: 29px;
+  text-align: center;
+  line-height: 29px;
+  display: block;
+  font-size: 12px;
+  background: #878788;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.bs4-order-tracking li:after {
+  content: "";
+  width: 150%;
+  height: 2px;
+  background: #878788;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 15px;
+  z-index: -1;
+}
+
+.bs4-order-tracking li:first-child:after {
+  left: 50%;
+}
+
+.bs4-order-tracking li:last-child:after {
+  left: 0% !important;
+  width: 0% !important;
+}
+.bs4-order-tracking li.active {
+  font-weight: bold;
+  color: #544bd3;
+}
+
+.bs4-order-tracking li.active > div {
+  background: #544bd3;
+}
+
+.bs4-order-tracking li.active:after {
+  background: #544bd3;
+}
+
+.card-timeline {
+  background-color: #fff;
+  z-index: 0;
+}
+
+.card {
+  margin: 30px 0px;
+  padding: 30px 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.payment-card {
+  padding: 30px 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 1px 5px 10px 1px rgba(0, 0, 0, 0.2);
+}

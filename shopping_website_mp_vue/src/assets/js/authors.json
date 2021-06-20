@@ -1,0 +1,436 @@
+[
+    {
+        "author_name": "Saekisan",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "saekisan"
+    },
+    {
+        "author_name": "Rifujin na Maganote",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "rifujin-na-maganote"
+    },
+    {
+        "author_name": "Kumo Kagyu",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "kumo-kagyu"
+    },
+    {
+        "author_name": "Isuna Hasekura",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "isuna-hasekura"
+    },
+    {
+        "author_name": "Asato Asato",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "asato-asato"
+    },
+    {
+        "author_name": "Nozomu Mochitsuki",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "nozomu-mochitsuki"
+    },
+    {
+        "author_name": "Yukiya Murasaki",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "yukiya-murasaki"
+    },
+    {
+        "author_name": "Hiro Ainana",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "hiro-ainana"
+    },
+    {
+        "author_name": "Miya Kazuki",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "miya-kazuki"
+    },
+    {
+        "author_name": "FUSE",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "fuse"
+    },
+    {
+        "author_name": "Okina Baba",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "okina-baba"
+    },
+    {
+        "author_name": "Kiyotaka Haimura",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "kiyotaka-haimura"
+    },
+    {
+        "author_name": "Eiji Mikage",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "eiji-mikage"
+    },
+    {
+        "author_name": "Jougi Shiraishi",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "jougi-shiraishi"
+    },
+    {
+        "author_name": "Wataru Watari",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "wataru-watari"
+    },
+    {
+        "author_name": "Daisuke Aizawa",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "daisuke-aizawa"
+    },
+    {
+        "author_name": "Riku Misora",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "riku-misora"
+    },
+    {
+        "author_name": "Yoshitoki Oima",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "yoshitoki-oima"
+    },
+    {
+        "author_name": "Naoki Yamakawa",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "naoki-yamakawa"
+    },
+    {
+        "author_name": "Hajime Isayama",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "hajime-isayama"
+    },
+    {
+        "author_name": "Yukimura Makoto",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "yukimura-makoto"
+    },
+    {
+        "author_name": "Wataru Akashingo",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "wataru-akashingo"
+    },
+    {
+        "author_name": "Carlo Zen",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "carlo-zen"
+    },
+    {
+        "author_name": "Nakatani Nio",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "nakatani-nio"
+    },
+    {
+        "author_name": "Itagaki Hako",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "itagaki-hako"
+    },
+    {
+        "author_name": "Teshima Fuminori",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "teshima-fuminori"
+    },
+    {
+        "author_name": "Itagaki Hako, Teshima Fuminori",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "itagaki-hako-teshima-fuminori"
+    },
+    {
+        "author_name": "Miyajima Reiji",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "miyajima-reiji"
+    },
+    {
+        "author_name": "Toboso Yana",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "toboso-yana"
+    },
+    {
+        "author_name": "Kaneda Yousuke",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "kaneda-yousuke"
+    },
+    {
+        "author_name": "Sankaku Head",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "sankaku-head"
+    },
+    {
+        "author_name": "Saburouta",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "saburouta"
+    },
+    {
+        "author_name": "Yamamoto Souichirou",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "yamamoto-souichirou"
+    },
+    {
+        "author_name": "Musawo",
+        "country_of_origin": "Japan",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": "musawo"
+    },
+    {
+        "author_name": "Mitch Albom",
+        "country_of_origin": "United States",
+        "author_image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388200541l/3431.jpg",
+        "author_description": "Mitchell David Albom is an author, journalist, screenwriter, playwright, radio and television broadcaster and musician. His books have collectively sold over 35 million copies worldwide; have been published in forty-one territories and in forty-two languages around the world; and have been made into Emmy Award-winning and critically-acclaimed television movies.",
+        "author_slug": "mitch-albom"
+    },
+    {
+        "author_name": "John Green",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1368640552p5/2331.jpg",
+        "author_description": "Librarian Note: There is more than one author in the Goodreads database with this name.\n\nJohn Green's first novel, Looking for Alaska, won the 2006 Michael L. Printz Award presented by the American Library Association. His second novel, An Abundance of Katherines, was a 2007 Michael L. Printz Award Honor Book and a finalist for the Los Angeles Times Book Prize. His next novel, Paper Towns, is a New York Times bestseller and won the Edgar Allen Poe Award for Best YA Mystery. In January 2012, his most recent novel, The Fault in Our Stars, was met with wide critical acclaim, unprecedented in Green's career. The praise included rave reviews in Time Magazine and The New York Times, on NPR, and from award-winning author Markus Zusak. The book also topped the New York Times Children's Paperback Bestseller list for several weeks. Green has also coauthored a book with David Levithan called Will Grayson, Will Grayson, published in 2010. The film rights for all his books, with the exception of Will Grayson Will Grayson, have been optioned to major Hollywood Studios.\n\nIn 2007, John and his brother Hank were the hosts of a popular internet blog, \"Brotherhood 2.0,\" where they discussed their lives, books and current events every day for a year except for weekends and holidays. They still keep a video blog, now called \"The Vlog Brothers,\" which can be found on the Nerdfighters website, or a direct link here.",
+        "author_slug": "john-green"
+    },
+    {
+        "author_name": "Suzanne Collins",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1595433637p5/7577278.jpg",
+        "author_description": "Librarian Note: There is more than one author in the Goodreads database with this name.\n\nSince 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo. For preschool viewers, she penned multiple stories for the Emmy-nominated Little Bear and Oswald. She also co-wrote the critically acclaimed Rankin/Bass Christmas special, Santa, Baby! Most recently she was the Head Writer for Scholastic Entertainment’s Clifford’s Puppy Days.\n\nWhile working on a Kids WB show called Generation O! she met children’s author James Proimos, who talked her into giving children’s books a try.\n\nThinking one day about Alice in Wonderland, she was struck by how pastoral the setting must seem to kids who, like her own, lived in urban surroundings. In New York City, you’re much more likely to fall down a manhole than a rabbit hole and, if you do, you’re not going to find a tea party. What you might find...? Well, that’s the story of Gregor the Overlander, the first book in her five-part series, The Underland Chronicles. Suzanne also has a rhyming picture book illustrated by Mike Lester entitled When Charlie McButton Lost Power.\n\nShe currently lives in Connecticut with her family and a pair of feral kittens they adopted from their backyard.\n\nThe books she is most successful for in teenage eyes are The Hunger Games, Catching Fire and Mockingjay. These books have won several awards, including the GA Peach Award.",
+        "author_slug": "suzanne-collins"
+    },
+    {
+        "author_name": "Adam Silvera",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1595433637p5/7577278.jpg",
+        "author_description": "Adam Silvera is the New York Times bestselling author of More Happy Than Not, History Is All You Left Me, and They Both Die at the End. His next book What If It's Us is co-written by Becky Albertalli (Simon vs. the Homo Sapiens Agenda) and releases on October 9th, 2018.\nHe writes full-time in New York City and is tall for no reason.",
+        "author_slug": "adam-silvera"
+    },
+    {
+        "author_name": "J.R.R. Tolkien",
+        "country_of_origin": "South Africa",
+        "author_image": "https://images.gr-assets.com/authors/1564399522p5/656983.jpg",
+        "author_description": "John Ronald Reuel Tolkien, CBE was an English writer, poet, WWI veteran (a First Lieutenant in the Lancashire Fusiliers, British Army), philologist, and university professor, best known as the author of the high fantasy classic works The Hobbit and The Lord of the Rings .\n\nTolkien was Rawlinson and Bosworth Professor of Anglo-Saxon at Oxford from 1925 to 1945, and Merton Professor of English language and literature from 1945 to 1959. He was a close friend of C.S. Lewis.\n\nChristopher Tolkien published a series of works based on his father's extensive notes and unpublished manuscripts, including The Silmarillion . These, together with The Hobbit and The Lord of the Rings, form a connected body of tales, poems, fictional histories, invented languages, and literary essays about an imagined world called Arda, and Middle-earth within it. Between 1951 and 1955, Tolkien applied the word \"legendarium\" to the larger part of these writings.\n\nWhile many other authors had published works of fantasy before Tolkien, the great success of The Hobbit and The Lord of the Rings led directly to a popular resurgence of the genre. This has caused Tolkien to be popularly identified as the \"father\" of modern fantasy literature—or more precisely, high fantasy. Tolkien's writings have inspired many other works of fantasy and have had a lasting effect on the entire field.\n\nIn 2008, The Times ranked him sixth on a list of \"The 50 greatest British writers since 1945\". Forbes ranked him the 5th top-earning dead celebrity in 2009.J.R.R. Tolkien, was born in South Africa in 1892, but his family moved to Britain when he was about 3 years old. When Tolkien was 8 years old, his mother converted to Catholicism, and he remained a Catholic throughout his life. In his last interview, two years before his death, he unhesitatingly testified, “I’m a devout Roman Catholic.”\n\nTolkien married his childhood sweetheart, Edith, and they had four children. He wrote them letters each year as if from Santa Claus, and a selection of these was published in 1976 as The Father Christmas Letters . One of Tolkien’s sons became a Catholic priest. Tolkien was an advisor for the translation of the Jerusalem Bible .\n\nTolkien once described The Lord of the Rings to his friend Robert Murray, an English Jesuit priest, as \"a fundamentally religious and Catholic work, unconsciously so at first, but consciously in the revision.\" There are many theological themes underlying the narrative including the battle of good versus evil, the triumph of humility over pride, and the activity of grace. In addition the saga includes themes which incorporate death and immortality, mercy and pity, resurrection, salvation, repentance, self-sacrifice, free will, justice, fellowship, authority and healing. In addition The Lord's Prayer \"And lead us not into temptation, but deliver us from evil\" was reportedly present in Tolkien's mind as he described Frodo's struggles against the power of the \"One Ring.''",
+        "author_slug": "jrr-tolkien"
+    },
+    {
+        "author_name": "Angie Thomas",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1471998209p5/15049422.jpg",
+        "author_description": "Angie Thomas was born, raised, and still resides in Jackson, Mississippi as indicated by her accent. She is a former teen rapper whose greatest accomplishment was an article about her in Right-On Magazine with a picture included. She holds a BFA in Creative Writing from Belhaven University and an unofficial degree in Hip Hop. She can also still rap if needed. She is an inaugural winner of the Walter Dean Meyers Grant 2015, awarded by We Need Diverse Books. Her debut novel, The Hate U Give, was acquired by Balzer + Bray/HarperCollins in a 13-house auction and will be published in spring 2017. Film rights have been optioned by Fox 2000 with George Tillman attached to direct and Hunger Games actress Amandla Stenberg set to star.",
+        "author_slug": "angie-thomas"
+    },
+    {
+        "author_name": "Rainbow Rowell",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1342324527p5/4208569.jpg",
+        "author_description": "Rainbow Rowell writes books. Sometimes she writes about adults (ATTACHMENTS and LANDLINE). Sometimes she writes about teenagers (ELEANOR & PARK, FANGIRL and THE SIMON SNOW BOOKS.). But she always writes about people who talk a lot. And people who feel like they're screwing up. And people who fall in love.\n\nWhen she's not writing, Rainbow is reading comic books, planning Disney World trips and arguing about things that don't really matter in the big scheme of things.\n\nShe lives in Nebraska with her husband and two sons.\n\nMore at rainbowrowell.com.",
+        "author_slug": "rainbow-rowell"
+    },
+    {
+        "author_name": "Matt Haig",
+        "country_of_origin": "United Kingdom",
+        "author_image": "https://images.gr-assets.com/authors/1610710100p5/76360.jpg",
+        "author_description": "Matt Haig was born in Sheffield, England in1975. He writes books for both adults and children, often blending the worlds of domestic reality and outright fantasy, with a quirky twist. His bestselling novels are translated into 28 languages. The Guardian has described his writing as 'delightfully weird' and the New York Times has called him 'a novelist of great talent' whose writing is 'funny, riveting and heartbreaking'.\n\nHis novels for adults are The Last Family in England, narrated by a labrador and optioned for film by Brad Pitt; The Dead Fathers Club (2006), an update of Hamlet featuring an 11-year-old boy; The Possession of Mr Cave (2008), about a man obsessed with his daughter's safety, and The Radleys (2010) which won Channel 4's TV Book Club public vote and was shortlisted for a Galaxy National Book Award (UK). The film rights to all his adult novels have been sold. His next adult novel is The Humans (2013).\n\nHis multi-award winning popular first novel for children, Shadow Forest, was published in 2007 and its sequel, The Runaway Troll, in 2009. His most recent children's novel is To Be A Cat (2012).",
+        "author_slug": "matt-haig"
+    },
+    {
+        "author_name": "Kiley Reid",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1584271436p5/18257829.jpg",
+        "author_description": "Kiley Reid (born 1984) is an American novelist. She is a recent graduate of the Iowa Writers’ Workshop where she was the recipient of the Truman Capote Fellowship. She lives in Philadelphia, Pennsylvania. Such A Fun Age is her first novel.",
+        "author_slug": "kiley-reid"
+    },
+    {
+        "author_name": "Jeanine Cummins",
+        "country_of_origin": "Spain",
+        "author_image": "https://images.gr-assets.com/authors/1559674890p5/338667.jpg",
+        "author_description": "Jeanine Cummins is the author of four books: the bestselling memoir A Rip in Heaven, and the novels The Outside Boy, The Crooked Branch, and American Dirt. She lives in New York with her husband and two children.",
+        "author_slug": "jeanine-cummins"
+    },
+    {
+        "author_name": "Suzanne Redfearn",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1447192262p5/6922565.jpg",
+        "author_description": "Suzanne Redfearn is the award-winning author of four novels: Hush Little Baby, No Ordinary Life, In an Instant, and Hadley & Grace. In addition to being an author, she’s also an architect specializing in residential and commercial design. She lives in Laguna Beach, California, where she and her husband own two restaurants: Lumberyard and Slice Pizza and Beer. You can find her at her website, www.SuzanneRedfearn.com, on Facebook at SuzanneRedfearnAuthor, or on Twitter @SuzanneRedfearn.",
+        "author_slug": "suzanne-redfearn"
+    },
+    {
+        "author_name": "Margarita Montimore",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1559068596p5/17205673.jpg",
+        "author_description": "Margarita Montimore is the author of Asleep from Day and Oona Out of Order, a USA Today bestseller and Good Morning America Book Club pick. After receiving a BFA in Creative Writing from Emerson College, she worked for over a decade in publishing and social media before deciding to focus on the writing dream full-time. Born in Soviet Ukraine and raised in Brooklyn, she currently lives in New Jersey with her husband and dog.\n\nMargarita writes upmarket fiction that tends to be left of center and flirt with multiple genres. She loves all things dark, strange, and surreal, but is also optimistic—verging on quixotic—and a pop culture geek, so her work tends to incorporate all those elements to varying degrees.",
+        "author_slug": "margarita-montimore"
+    },
+    {
+        "author_name": "Jennifer L. Armentrout",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1552568126p5/4476934.jpg",
+        "author_description": "Hey Guys! Please note: I don't send out ARCs for review. If you're interested in reviewing a book of mine before release date, please contact the appropriate publisher. I also do NOT check my Goodreads email.\n\nTo email me, please use the below addy.\n\njenniferlarmentrout@live.com\n\n# 1 New York Times and # 1 International Bestselling author Jennifer lives in Charles Town, West Virginia. All the rumors you’ve heard about her state aren’t true. When she’s not hard at work writing. she spends her time reading, watching really bad zombie movies, pretending to write, hanging out with her husband and her Jack Russell Loki. In early 2015, Jennifer was diagnosed with retinitis pigmentosa, a group of rare genetic disorders that involve a breakdown and death of cells in the retina, eventually resulting in loss of vision, among other complications. Due to this diagnosis, educating people on the varying degrees of blindness has become of passion of hers, right alongside writing, which she plans to do as long as she can.\n\nHer dreams of becoming an author started in algebra class, where she spent most of her time writing short stories….which explains her dismal grades in math. Jennifer writes young adult paranormal, science fiction, fantasy, and contemporary romance. She is published with Tor, HarperCollins Avon and William Morrow, Entangled Teen and Brazen, Disney/Hyperion and Harlequin Teen. Her Wicked Series has been optioned by PassionFlix. Jennifer has won numerous awards, including the 2013 Reviewers Choice Award for Wait for You, the 2015 Editor’s Pick for Fall With Me, and the 2014/2015 Moerser-Jugendbuch- Jury award for Obsidian. Her young adult romantic suspense novel DON’T LOOK BACK was a 2014 nominated Best in Young Adult Fiction by YALSA. Her adult romantic suspense novel TILL DEATH was a Amazon Editor’s Pick and iBook Book of the Month. Her young adult contemporary THE PROBLEM WITH FOREVER is a 2017 RITA Award Winner in Young Adult Fiction. She also writes Adult and New Adult contemporary and paranormal romance under the name J. Lynn. She is published by Entangled Brazen and HarperCollins.\n\nShe is the owner of ApollyCon and The Origin Event, the successful annual events that features over hundred bestselling authors in Young Adult, New Adult, and Adult Fiction, panels, parties, and more.",
+        "author_slug": "jennifer-l-armentrout"
+    },
+    {
+        "author_name": "Peter Seibel",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "",
+        "author_slug": "peter-seibel"
+    },
+    {
+        "author_name": "Simon Singh",
+        "country_of_origin": "United Kingdom",
+        "author_image": "https://images.gr-assets.com/authors/1263127928p5/10894.jpg",
+        "author_description": "Simon Lehna Singh, MBE is a British author who has specialised in writing about mathematical and scientific topics in an accessible manner. He is the maiden winner of the Lilavati Award.\n\nHis written works include Fermat's Last Theorem (in the United States titled Fermat's Enigma: The Epic Quest to Solve the World's Greatest Mathematical Problem), The Code Book (about cryptography and its history), Big Bang (about the Big Bang theory and the origins of the universe) and Trick or Treatment? Alternative Medicine on Trial (about complementary and alternative medicine).\n\nHe has also produced documentaries and works for television to accompany his books, is a trustee of NESTA, the National Museum of Science and Industry and co-founded the Undergraduate Ambassadors Scheme.",
+        "author_slug": "simon-singh"
+    },
+    {
+        "author_name": "Brian Christian",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1453834169p5/4199891.jpg",
+        "author_description": "Brian Christian is the author of The Most Human Human, which was named a Wall Street Journal bestseller, a New York Times Editors’ Choice, and a New Yorker favorite book of the year. He is the author, with Tom Griffiths, of Algorithms to Live By, a #1 Audible bestseller, Amazon best science book of the year and MIT Technology Review best book of the year.\n\nChristian’s writing has been translated into nineteen languages, and has appeared in The New Yorker, The Atlantic, Wired, The Wall Street Journal, The Guardian, The Paris Review, and in scientific journals such as Cognitive Science. Christian has been featured on The Daily Show with Jon Stewart, Radiolab, and The Charlie Rose Show, and has lectured at Google, Facebook, Microsoft, the Santa Fe Institute, and the London School of Economics. His work has won several awards, including fellowships at Yaddo and the MacDowell Colony, publication in Best American Science & Nature Writing, and an award from the Academy of American Poets.\n\nBorn in Wilmington, Delaware, Christian holds degrees in philosophy, computer science, and poetry from Brown University and the University of Washington. A Visiting Scholar at the University of California, Berkeley, the Director of Technology at McSweeney’s Publishing, and an active open-source contributor to projects such as Ruby on Rails, he lives in San Francisco.",
+        "author_slug": "brian-christian"
+    },
+    {
+        "author_name": "Tom Griffiths",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/m_200x266-d279b33f8eec0f27b7272477f09806be.png",
+        "author_description": "",
+        "author_slug": "tom-griffiths"
+    },
+    {
+        "author_name": "Brian Christian, Tom Griffiths",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/m_200x266-d279b33f8eec0f27b7272477f09806be.png",
+        "author_description": "",
+        "author_slug": "brian-christian-tom-griffiths"
+    },
+    {
+        "author_name": "Thomas H. Cormen",
+        "country_of_origin": "United States",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "Thomas H. Cormen is the co-author of Introduction to Algorithms, along with Charles Leiserson, Ron Rivest, and Cliff Stein. He is a Full Professor of computer science at Dartmouth College and currently Chair of the Dartmouth College Writing Program.",
+        "author_slug": "thomas-h-cormen"
+    },
+    {
+        "author_name": "Charles E. Leiserson",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "",
+        "author_slug": "charles-e-leiserson"
+    },
+    {
+        "author_name": "Ronald L. Rivest",
+        "country_of_origin": "United States",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "Ronald L. Rivest Ph.D. (Computer Science, Stanford University, 1974; B.A., Mathematics, Yale University, 1969) is an institute professor in the Massachusetts Institute of Technology’s (MIT) Department of Electrical Engineering and Computer Science, and a leader of the Cryptography and Information Security research group within MIT’s Computer Science and Artificial Intelligence Laboratory.\n\nRivest is a fellow of the Association for Computing Machinery (ACM) and of the American Academy of Arts and Sciences, and a member of the National Academy of Engineering and the National Academy of Sciences.\nRivest is an inventor of the RSA public-key cryptosystem and a founder of RSA Data Security. He has extensive experience in cryptographic design and cryptanalysis, and he has published numerous papers in these areas. He has served as director of the International Association for Cryptologic Research, the organizing body for the Eurocrypt and Crypto conferences, and of the Financial Cryptography Association. He has also worked extensively in the areas of computer algorithms and machine learning.\n\nRivest is a member of the CalTech/MIT Voting Technology Project and serves on the Board of Verified Voting. He has served on the TGDC (Technical Guidelines Development Committee) that advises the U.S. Election Assistance Commission and chaired the committee’s subgroup on Security and Transparency.",
+        "author_slug": "ronald-l-rivest"
+    },
+    {
+        "author_name": "Clifford Stein",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "",
+        "author_slug": "clifford-stein"
+    },
+    {
+        "author_name": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "",
+        "author_slug": "thomas-h-cormen-charles-e-leiserson-ronald-l-rivest-clifford-stein"
+    },
+    {
+        "author_name": "Steve McConnell",
+        "country_of_origin": "United States",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "",
+        "author_slug": "steve-mcconnell"
+    },
+    {
+        "author_name": "Scott Chacon",
+        "country_of_origin": "",
+        "author_image": "https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png",
+        "author_description": "",
+        "author_slug": "scott-chacon"
+    },
+    {
+        "author_name": "Ben Mezrich",
+        "country_of_origin": "United States",
+        "author_image": "https://images.gr-assets.com/authors/1405445508p5/2850.jpg",
+        "author_description": "Ben Mezrich has created his own highly addictive genre of nonfiction, chronicling the amazing stories of young geniuses making tons of money on the edge of impossibility, ethics, and morality.\n\nWith his newest non-fiction book, Once Upon a Time in Russia, Mezrich tells his most incredible story yet: A true drama of obscene wealth, crime, rivalry, and betrayal from deep inside the world of billionaire Russian Oligarchs.\n\nMezrich has authored sixteen books, with a combined printing of over four million copies, including the wildly successful Bringing Down the House: The Inside Story of Six M.I.T. Students Who Took Vegas for Millions, which spent sixty-three weeks on the New York Times bestseller list, and sold over 2 million copies in fifteen languages. His book, The Accidental Billionaires: The Founding of Facebook, a Tale of Sex, Money, Genius and Betrayal – debuted at #4 on the New York Times list and spent 18 weeks in hardcover and paperback, as well as hit bestseller lists in over a dozen countries. The book was adapted into the movie The Social Network –written by Aaron Sorkin and directed by David Fincher – and was #1 at the box office for two weeks, won Golden Globes for best picture, best director, best adapted screenplay, best score, and was nominated for 8 Oscars, winning 3 including best Adapted Screenplay for Aaron Sorkin. Mezrich and Aaron Sorkin shared a prestigious Scripter Award for best adapted screenplay as well.",
+        "author_slug": "ben-mezrich"
+    },
+    {
+        "author_name": "Steven S. Skiena",
+        "country_of_origin": "",
+        "author_image": "https://images.gr-assets.com/authors/1442469670p5/518918.jpg",
+        "author_description": "",
+        "author_slug": "steven-s-skiena"
+    },
+    {
+        "author_name": "",
+        "country_of_origin": "",
+        "author_image": "",
+        "author_description": null,
+        "author_slug": ""
+    }
+]
