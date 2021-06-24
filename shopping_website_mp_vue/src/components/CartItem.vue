@@ -52,32 +52,28 @@ export default {
       item: this.initialItem
     }
   },
-  mounted () {
-    console.log(this.item)
-  },
   methods: {
     getItemTotal (item) {
-          return item.quantity * item.book.price
-      },
-      decrementQuantity (item) {
-          item.quantity -= 1
-          if (item.quantity === 0) {
-              this.$emit('removeFromCart', item)
-          }
-          this.updateCart()
-      },
-      incrementQuantity (item) {
-          item.quantity += 1
-          this.updateCart()
-      },
-      updateCart () {
-          localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
-      },
-      removeFromCart (item) {
-        console.log(item)
-        this.$emit('removeFromCart', item)
+        return item.quantity * item.book.price
+    },
+    decrementQuantity (item) {
+        item.quantity -= 1
+        if (item.quantity === 0) {
+            this.$emit('removeFromCart', item)
+        }
         this.updateCart()
-      }
+    },
+    incrementQuantity (item) {
+        item.quantity += 1
+        this.updateCart()
+    },
+    updateCart () {
+        localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
+    },
+    removeFromCart (item) {
+      this.$emit('removeFromCart', item)
+      this.updateCart()
+    }
   }
 }
 </script>

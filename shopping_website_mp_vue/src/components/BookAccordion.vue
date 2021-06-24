@@ -62,7 +62,7 @@
           </p>
         </div>
         {{ comments }}
-        <a @click="$router.push({ name: 'Product', params: { bookImg, bookName, bookDesc, author, price, bookGenres, authorImg, authorDesc, comments, publishers } })"><button class="buy-btn">Buy</button></a>
+        <a @click="$router.push({ path: '' + bookAbsoluteUrl, append: false})"><button class="buy-btn">Buy</button></a>
       </div>
     </div>
   </div>
@@ -85,7 +85,8 @@ export default {
     authorImg: String,
     authorDesc: String,
     comments: String,
-    publishers: String
+    publishers: String,
+    bookAbsoluteUrl: String
   }
 }
 </script>

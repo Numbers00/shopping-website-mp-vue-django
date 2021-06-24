@@ -67,4 +67,14 @@
 </div>
 </template>
 
+<script>
+
+export default {
+    name: 'LowerHomepage',
+    mounted () {
+        document.title = 'Home | Code & Chill'
+    }
+}
+</script>
+
 <style scoped src='@/assets/css/design.css'></style>

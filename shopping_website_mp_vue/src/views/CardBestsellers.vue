@@ -63,6 +63,8 @@ export default {
   },
   mounted () {
     this.getBooks()
+
+    document.title = 'Bestsellers | Code & Chill'
   },
   methods: {
     async getBooks () {

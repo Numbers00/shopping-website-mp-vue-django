@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
@@ -20,8 +22,25 @@ export default {
     AppHeader,
     AppFooter
   },
+  mounted () {
+    this.cart = this.$store.state.cart
+    console.log(this.cart)
+    console.log(this.$store.state.paymentCredentials)
+  },
   beforeCreate () {
     this.$store.commit('initializeStore')
+    const token = this.$store.state.token
+    if (token) {
+        axios.defaults.headers.common['Authorization'] = "Token " + token
+    } else {
+        axios.defaults.headers.common['Authorization'] = ""
+    }
+  },
+  created () {
+    window.addEventListener(
+      'resize',
+      this.$store.commit('setWindowWidth')
+    )
   }
 }
 </script>
@@ -30,6 +49,7 @@ export default {
 body {
   position: relative;
   top: 80px;
+  padding-bottom: 100px;
 }
 
 #app {

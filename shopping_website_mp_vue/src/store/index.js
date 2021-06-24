@@ -8,9 +8,20 @@ export default new Vuex.Store({
     cart: {
         items: [],
     },
+    paymentCredentials: {
+      fullName: '',
+      address: '',
+      phone: '',
+      cashInHand: '',
+      cardNumber: '',
+      expirationMM: '',
+      expirationYY: '',
+      CVV: ''
+    },
     isAuthenticated: false,
     token: '',
-    isLoading: false
+    isLoading: false,
+    windowWidth: window.innerWidth
   },
   mutations: {
     initializeStore(state) {
@@ -19,6 +30,13 @@ export default new Vuex.Store({
       } else {
         localStorage.setItem('cart', JSON.stringify(state.cart))
       }
+
+      if (localStorage.getItem('paymentCredentials')) {
+        state.paymentCredentials = JSON.parse(localStorage.getItem('paymentCredentials'))
+      } else {
+        localStorage.setItem('paymentCredentials', JSON.stringify(state.paymentCredentials))
+      }
+
 
       if (localStorage.getItem('token')) {
           state.token = localStorage.getItem('token')
@@ -38,6 +56,18 @@ export default new Vuex.Store({
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
+    confirmPayment(state, item) {
+      state.paymentCredentials.fullName = item.fullName
+      state.paymentCredentials.address = item.address
+      state.paymentCredentials.phone = item.phone
+      state.paymentCredentials.cashInHand = item.cashInHand
+      state.paymentCredentials.cardNumber = item.cardNumber
+      state.paymentCredentials.expirationMM = item.expirationMM
+      state.paymentCredentials.expirationYY = item.expirationYY
+      state.paymentCredentials.CVV = item.CVV
+
+      localStorage.setItem('paymentCredentials', JSON.stringify(state.paymentCredentials))
+    },
     setIsLoading(state, status) {
       state.isLoading = status
     },
@@ -54,6 +84,23 @@ export default new Vuex.Store({
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
+    clearPaymentCredentials(state) {
+      state.paymentCredentials = {
+        fullName: '',
+        address: '',
+        phone: '',
+        cashInHand: '',
+        cardNumber: '',
+        expirationMM: '',
+        expirationYY: '',
+        CVV: ''
+      }
+
+      localStorage.setItem('paymentCredentials', JSON.stringify(state.paymentCredentials))
+    },
+    setWindowWidth(state) {
+      state.windowWidth = window.innerWidth;
+    }
   },
   actions: {
   },

@@ -15,7 +15,7 @@
         you
         enjoy the book :)
     </p>
-    <a href="#" style="text-decoration: none; color: inherit;">
+    <a @click="$router.push({ name: 'Books' })" style="text-decoration: none; color: inherit;">
         <div class="btn" style="font-family: quicksand;"> Return to
             Home
         </div>

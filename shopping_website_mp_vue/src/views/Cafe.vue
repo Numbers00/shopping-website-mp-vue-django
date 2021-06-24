@@ -22,3 +22,13 @@
 
 </div><!-- end of row -->
 </template>
+
+<script>
+
+export default {
+  name: 'Cafe',
+  mounted () {
+    document.title = 'Cafe | Code & Chill'
+  }
+}
+</script>

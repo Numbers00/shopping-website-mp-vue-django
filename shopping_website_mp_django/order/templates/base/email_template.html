@@ -1,0 +1,31 @@
+{% load mathfilters %}
+
+Hey {{full_name}}!
+
+Thank you for using Code & Chill's services!
+
+INVOICE
+
+BILLED TO
+
+{{full_name}}
+{{address}}
+{{phone}}
+
+
+PAID AMOUNT
+
+{{paid_amount}}
+
+
+ORDERS
+
+{{order.id}}
+
+
+{% for item in order.items %}
+Title: {{ item.book.title }}
+Price: ${{ item.book.price }}
+Quantity: {{ item.quantity }}
+Total: {{ item.quantity|mul:item.book.price|floatformat:2 }}
+{% endfor %}

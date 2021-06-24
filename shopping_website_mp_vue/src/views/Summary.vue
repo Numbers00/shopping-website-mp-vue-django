@@ -43,7 +43,7 @@
                                     <div class="col-12">
                                         <label>
                                             <input type="radio" name="standard" class="card-input-element" />
-                                            <div class="card card-input mb-3" style="max-width: 540px;">
+                                            <div class="col-12 card-input mb-3" @click="handleClickFree"  style="border: 1px solid gray; max-width: 540px;">
                                                 <div class="row g-0">
                                                     <div class="col-md-4">
                                                         <img src="https://thumbs.dreamstime.com/b/deliveryvantimeoutline-194934255.jpg"
@@ -51,7 +51,7 @@
                                                             alt="...">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <div class="card-body">
+                                                        <div class="card-body" style="margin: 10px 10px 10px 10px;">
                                                             <h5 class="card-title">Free Delivery</h5>
                                                             <p class="card-text">Code&Chill loves bibliophiles like you!
                                                                 Just wait for your book right at your doorstep
@@ -68,7 +68,7 @@
                                     <div class="col-12">
                                         <label>
                                             <input type="radio" name="standard" class="card-input-element" />
-                                            <div class="card card-input mb-3" style="max-width: 540px;">
+                                            <div class="col-12 card-input mb-3" @click="handleClickExpress" style="border: 1px solid gray; max-width: 540px;">
                                                 <div class="row g-0">
                                                     <div class="col-md-4">
                                                         <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/B2b8RSzfgivu3v9nb/logistic-shipping-and-freight-transportation-business-animated-icons-set-of-truck-cardboard-box-train-available-in-4k-uhd-fullhd-and-hd-3d-video-animation-footage_s9cl4f5gx_thumbnail-1080_09.png"
@@ -76,7 +76,7 @@
                                                             alt="...">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <div class="card-body">
+                                                        <div class="card-body" style="margin: 10px 10px 10px 10px;">
                                                             <h5 class="card-title">Express Delivery</h5>
                                                             <p class="card-text">Wait for your book right at your
                                                                 doorstep in few days time with our
@@ -95,30 +95,6 @@
                             </form>
                             <br>
                             <br>
-                            <div class="cart-page-heading">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <i class="fa fa-home" style="font-size: 2.5rem; padding-left: 20px;"></i>
-                                    </div>
-                                    <div class="col-10" style="text-align: left;">
-                                        <h5>Billing Address</h5>
-                                        <p>Kindly choose from options below.</p>
-                                    </div>
-                                    <div class="form-group mb-3" style="padding-top:20px; padding-left:20px"> <label
-                                            for="cardNumber">
-                                            <h6>Complete Address</h6>
-                                        </label>
-                                        <div class="input-group"> <input type="text" name="cardNumber"
-                                                placeholder="Street Address, City, Province, Country"
-                                                class="form-control " required>
-                                            <div class="col-lg-4 "><button
-                                                    class="subscribe btn btn-primary btn-block shadow-sm">Use
-                                                    Default
-                                                    Address</button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -131,17 +107,28 @@
 
                             <ul class="order-details-form mb-4">
                                 <li><span>Product</span> <span>Total</span></li>
-                                <li><span>Sample Product 1</span> <span>$59.90</span></li>
-                                <li><span>Subtotal</span> <span>$59.90</span></li>
-                                <li><span>Shipping</span> <span>Free</span></li>
-                                <li><span>Total</span> <span>$59.90</span></li>
+                                <li
+                                  v-for="item in cart.items"
+                                  :key="item"
+                                >
+                                  <span>{{item.book.title}}</span> <span>{{'(' + item.quantity + ') $' + (Math.round(getItemTotal(item)*100)/100).toFixed(2)}}</span>
+                                </li>
+                                <li><span>Subtotal</span> <span>${{(Math.round(cartTotalPrice*100)/100).toFixed(2)}}</span></li>
+                                <li><span>Shipping</span> 
+                                    <span v-if="freeToggle">Free</span>
+                                    <span v-if="expressToggle">$1</span>
+                                </li>
+                                <li><span>Total</span> <span>${{computeTotal}}</span></li>
                             </ul>
 
 
-                            <p style="padding-left: 25px; padding-bottom: 20px;">Selected Method: <strong> Cash on
-                                    Delivery</strong> </p>
+                            <p style="padding-left: 25px; padding-bottom: 20px;">
+                              Selected Method: 
+                              <strong v-if="viaCredit"> Credit Card</strong> 
+                              <strong v-if="!viaCredit"> Cash on Delivery</strong> 
+                            </p>
 
-                            <a href="confirmation.html" class="btn karl-checkout-btn">Place Order</a>
+                            <a @click="placeOrder" class="btn karl-checkout-btn" style="color: white;">Place Order</a>
                         </div>
                     </div>
 
@@ -154,12 +141,106 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import '@/assets/js/summary_jquery-2.2.4.min.js'
 import '@/assets/js/summary_popper.min.js'
 import '@/assets/js/summary_plugins.js'
 
 export default {
-  name: 'Summary'
+  name: 'Summary',
+  props: {
+    viaCredit: Boolean,
+    fullName: String,
+    address: String,
+    phone: String
+  },
+  data () {
+    return {
+      cart: {
+        items: [],
+      },
+      freeToggle: true,
+      expressToggle: false
+    }
+  },
+  mounted () {
+    this.cart = this.$store.state.cart
+
+    document.title = 'Summary | Code & Chill'
+  },
+  methods: {
+    getItemTotal (item) {
+        return item.quantity * item.book.price
+    },
+    async placeOrder () {
+        const items = []
+            for (let i = 0; i < this.cart.items.length; i++) {
+                const item = this.cart.items[i]
+                const obj = {
+                    book: item.book.id,
+                    author: item.author.id,
+                    quantity: item.quantity,
+                    price: (Math.round(item.book.price * item.quantity *100)/100).toFixed(2)   
+                }
+                items.push(obj)
+            }
+        const data = {
+            'full_name': this.$store.state.paymentCredentials.fullName,
+            'address': this.$store.state.paymentCredentials.address,
+            'phone': this.$store.state.paymentCredentials.phone,
+            'items': items
+        }
+
+        console.log(data)
+
+        await axios
+            .post('/api/v1/checkout/', data)
+            .then(response => {
+                this.$store.commit('clearCart')
+                this.$router.push('/confirmation')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+        this.$store.commit('setIsLoading', false)
+    },
+    handleClickFree () {
+        if (!this.freeToggle) {
+          this.freeToggle = true
+          this.expressToggle = false
+        }
+      },
+    handleClickExpress () {
+      if (!this.expressToggle) {
+        this.expressToggle = true
+        this.freeToggle = false
+      }
+    }
+  },
+  computed: {
+        cartTotalLength () {
+            return this.cart.items.reduce((acc, curVal) => {
+                return acc += curVal.quantity
+            }, 0)
+        },
+        cartTotalPrice () {
+            return this.cart.items.reduce((acc, curVal) => {
+                return acc += curVal.book.price * curVal.quantity
+            }, 0)
+        },
+        computeTotal () {
+            if (this.expressToggle) {
+                return (Math.round((this.cart.items.reduce((acc, curVal) => {
+                    return acc += curVal.book.price * curVal.quantity
+                }, 0) + 1)*100)/100).toFixed(2)
+            }
+            else return (Math.round(this.cart.items.reduce((acc, curVal) => {
+                    return acc += curVal.book.price * curVal.quantity
+                }, 0)*100)/100).toFixed(2)
+        }
+    }
 }
 </script>
 

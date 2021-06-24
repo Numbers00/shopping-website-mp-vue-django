@@ -41,8 +41,8 @@
     v-on:removeFromCart='removeFromCart'
   />
   <br />
-  <button class="subscribe btn btn-primary btn-block shadow-sm" style="float: right">
-    <a @click="$router.push({ name: 'Payment' })" style="text-decoration: none; color: inherit">Proceed to Payment</a>
+  <button @click="$router.push({ name: 'Payment' })" class="subscribe btn btn-primary btn-block shadow-sm" style="float: right">
+    <a style="text-decoration: none; color: inherit">Proceed to Payment</a>
   </button>
 </div>
 </template>
@@ -67,14 +67,10 @@ export default {
   mounted() {
         this.cart = this.$store.state.cart
         document.title = 'Cart | Code & Chill'
-        console.log(this.cart)
     },
     methods: {
         removeFromCart (item) {
-          console.log('yes')
-          console.log(item.book.id + ' ' + item.author.id)
           this.cart.items = this.cart.items.filter(i => {
-            console.log(i.book.id + ' vs. ' + item.book.id)
             return i.book.id !== item.book.id
           })
         }

@@ -48,4 +48,14 @@
 </div>
 </template>
 
+<script>
+
+export default {
+  name: 'AboutUs',
+  mounted () {
+    document.title = 'About Us | Code & Chill'
+  }
+}
+</script>
+
 <style scoped src='@/assets/css/design.css'></style>

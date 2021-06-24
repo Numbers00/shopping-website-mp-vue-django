@@ -252,6 +252,7 @@
                     :authorImg="getMatchingAuthor(book).image"
                     :authorDesc="getMatchingAuthor(book).description"
                     :publishers="book.publishers"
+                    :bookAbsoluteUrl="book.get_absolute_url"
                   />
                 </template>
               </div>

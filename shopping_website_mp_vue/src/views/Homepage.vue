@@ -99,8 +99,19 @@ export default {
     return {
       isHidden: true
     }
+  },
+  mounted () {
+    document.title = 'Home | Code & Chill'
   }
 }
 </script>
+
+<style scoped>
+homepage-wrapper {
+  background-color: white !important;
+  height: 100%;
+  width: 100%;
+}
+</style>
 
 <style scoped src="@/assets/css/design.css"></style>

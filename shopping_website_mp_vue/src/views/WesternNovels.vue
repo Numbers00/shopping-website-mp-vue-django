@@ -8,6 +8,9 @@ import BooksContent from '@/components/BooksContent'
 export default {
   components: {
     BooksContent
+  },
+  mounted () {
+    document.title = 'Western Novels | Code & Chill'
   }
 }
 </script>

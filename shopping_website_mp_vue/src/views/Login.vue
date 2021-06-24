@@ -15,13 +15,14 @@
                     LOGIN
                   </h3>
                   <br />
-                  <form>
+                  <form @submit.prevent="submitForm">
                     <div class="form-group mb-3">
                       <input
                         id="inputEmail"
                         type="email"
+                        v-model="email"
                         placeholder="Email address"
-                        required=""
+                        required
                         autofocus=""
                         class="form-control rounded-pill border-0 shadow-sm px-4"
                       />
@@ -30,8 +31,9 @@
                       <input
                         id="inputPassword"
                         type="password"
+                        v-model="password"
                         placeholder="Password"
-                        required=""
+                        required
                         class="form-control rounded-pill border-0 shadow-sm px-4 text-danger"
                       /><br />
                     </div>
@@ -43,7 +45,7 @@
                     </button>
                     <div style="padding-top: 10px">
                       <p class="signup">
-                        <a href="signup.html" style="text-decoration: none"
+                        <a @click="$router.push({ name: 'Signup' })" style="text-decoration: none"
                           >New User? Register here!</a
                         >
                       </p>
@@ -57,7 +59,7 @@
             class="row px-3 text-center justify-content-center mb-0 social"
             style="padding-top: 70px; transform: translateY(-150px)"
           >
-            <a href="books.html"
+            <a @click="$router.push({ name: 'Books' })"
               ><span
                 class="fa fa-home"
                 style="font-size: 2rem; color: white"
@@ -71,9 +73,54 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import '@/assets/css/login.css'
 
 export default {
+  name: 'Login',
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  mounted () {
+    document.title = 'Login | Code & Chill'
+  },
+  methods: {
+    async submitForm () {
+      axios.defaults.headers.common['Authorization'] = ''
+
+      localStorage.removeItem('token')
+
+      const formData = {
+        email: this.email,
+        username: this.email,
+        password: this.password
+      }
+
+      await axios
+        .post('/api/v1/token/login/', formData)
+        .then(response => {
+            const token = response.data.auth_token
+            this.$store.commit('setToken', token)
+            axios.defaults.headers.common['Authorization'] = 'Token ' + token
+            localStorage.setItem('token', token)
+            
+            const toPath = this.$route.query.to || '/cart'
+            this.$router.push(toPath)
+        })
+        .catch(error => {
+            if (error.response) {
+              console.log(JSON.stringify(error.response.data))
+            } 
+            else {
+              console.log(JSON.stringify(error))
+            }
+        })
+    }
+  }
 }
 </script>
 

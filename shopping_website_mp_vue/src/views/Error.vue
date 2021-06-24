@@ -1,10 +1,13 @@
 <template>
-<div>
+<div style="background-color: #446072; font-family: monospace; height: 700px;">
+  <br>
+  <br>
+  <br>
   <nav class=" shelf">
-      <a class="book home-page" href="#" style="text-decoration: none;">Books</a>
-      <a class="book about-us" href="#" style="text-decoration:none">About us</a>
-      <a class="book contact" href="#" style="text-decoration:none">Sign Up</a>
-      <a class="book faq" href="#" style="text-decoration:none">Home</a>
+      <a @click="$router.push({ name: 'Books' })" class="book home-page" href="#" style="text-decoration: none;">Books</a>
+      <a @click="$router.push({ name: 'AboutUs' })" class="book about-us" href="#" style="text-decoration:none">About us</a>
+      <a @click="$router.push({ name: 'Signup' })" class="book contact" href="#" style="text-decoration:none">Sign Up</a>
+      <a @click="$router.push({ name: 'Homepage' })" class="book faq" href="#" style="text-decoration:none">Home</a>
 
       <span class="book not-found"></span>
 
@@ -26,4 +29,4 @@ export default {
 }
 </script>
 
-<style sourced src='@/assets/css/error.css'></style>
+<style scoped src='@/assets/css/error.css'></style>

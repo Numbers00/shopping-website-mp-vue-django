@@ -1,17 +1,32 @@
 <template>
-<div style="position: relative; bottom: 40px;" id='bookContent'>
-  <div>
+<div style="position: relative; bottom: 40px;" id='entire'>
+  <div id='books-lower'>
     <div id='books-toggle' class='top-divs'>
       <h5><b>You Are Viewing:</b></h5>
-      <b-navbar-nav class='d-flex flex-row'>
-        <b-link
-          v-for="(bookView, index) in bookViews"
-          :key="index"
-          :to="bookView.to"
-        >
+      <template v-if="windowWidth > 800">
+        <b-navbar-nav class='d-flex flex-row'>
+          <b-link
+            v-for="(bookView, index) in bookViews"
+            :key="index"
+            :to="bookView.to"
+            class="book-toggle-links"
+          >
             {{ bookView.name }}<span class='ml-1 mr-1' style="border-right: 1px solid gray"></span>
-        </b-link>
-      </b-navbar-nav>
+          </b-link>
+        </b-navbar-nav>
+      </template>
+      <template v-else>
+        <b-navbar-nav class='d-flex flex-row'>
+          <b-link
+            v-for="(bookView, index) in bookViews"
+            :key="index"
+            :to="bookView.to"
+            class="book-toggle-links"
+          >
+            {{ bookView.name }}<span style="border-right: 1px solid gray;"></span>
+          </b-link>
+        </b-navbar-nav>
+      </template>
     </div>
     <div id='nav-view-output' class='top-divs'>
       Books > 
@@ -96,69 +111,19 @@
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
-  <div id='price-div' class='white-div'>
-    <div class='div-header'>🟤 Price</div>
-    <div class="filtering-links">
-      <li
-        v-for="(link, index) in priceLinks"
-        :key="index"
-      >
-        <a @click="handleClickPrice(link)">
-          {{ link }} <span style="color: gray">({{ countPrices(link) }})</span><router-link></router-link>
-        </a>
-      </li>
-      <div class='d-flex w-100 mt-1' id='price-input-div'>
-        <span class='mt-1 mr-1'>$</span> <input class='filter-input-tag w-25' type="number" id="price-from" name="price-from" />
-        <span class='ml-1 mt-1 mr-1'>- $</span> <input class='filter-input-tag w-25' type="number" id="price-to" name="price-to" />
-        <button class='filter-btn'><i class="fa fa-search" aria-hidden="true"></i></button>
-      </div>
-    </div>
-  </div>
-  <div id='rating-div' class='white-div'>
-    <div class='div-header'>🟤 Rating</div>
-    <div class='filtering-links'>
-      <li
-        v-for="(link, index) in ratingLinks"
-        :key="index"
-      >
-        <a v-if="index === 0" @click="handleClickRating(link)">
-          {{ link }} 
-          <span style="color: gray" v-if="type === 'Search'">({{ searchedBooks.length }})</span>
-          <span style="color: gray" v-else>({{ relevantBooks.length }})</span>
-          <router-link></router-link>
-        </a>
-        <a v-else @click="handleClickRating(link)">
-          {{ link }} <span style="color: gray">(0)</span><router-link></router-link>
-        </a>
-      </li>
-      <div class='d-flex w-100 mt-1' id='price-input-div'>
-        <span class='mt-1 mr-1'>*</span> <input class='filter-input-tag w-25' type="number" id="rating-from" name="rating-from" />
-        <span class='ml-1 mt-1 mr-1'>- *</span> <input class='filter-input-tag w-25' type="number" id="rating-to" name="rating-to" />
-        <button class='filter-btn'><i class="fa fa-search" aria-hidden="true"></i></button>
-      </div>
-    </div>
-  </div>
-  <div id='status-div' class='white-div'>
-    <div class='div-header'>🟤 Book Status</div>
-    <div class='filtering-links'>
-      <li
-        v-for="(link, index) in statusLinks"
-        :key="index"
-      >
-        <a @click="handleClickStatus(link)">
-          {{ link }} <span style="color: gray">({{ countStatus(link) }})</span><router-link></router-link>
-        </a>
-      </li>
-    </div>
-  </div>
   <div id='main-div'>
     <div id='books-content' class='white-div'>
-    <div class='div-header d-flex flex-row'>
-      🟤 {{ mainHeader }} ({{ mainHeaderSort }} 
-      <span class='ml-1' v-if="this.sortingInverter">
-        - Descending)
-      </span> 
-      <span v-else>)</span>
+    <div id='main-header' class='div-header d-flex flex-row'>
+      <span class='mr-1'>
+        🟤 {{ mainHeader }} 
+      </span>
+      <span>
+        ({{ mainHeaderSort }}
+        <span class='ml-1' v-if="this.sortingInverter">
+          - Descending)
+        </span> 
+        <span style="position: relative; right: 4px;" v-else>)</span>
+      </span>
       <b-navbar-nav class='d-flex flex-row ml-2'>
         <b-link
           v-for="(sortingOption, index) in sortingOptions"
@@ -174,10 +139,10 @@
       <template v-if="type === 'Search'">
         <template
           v-for="(book, index) in searchedBooks.filter(book => {
-            if (genreFilters == '' && priceFilters == '' && statusFilters == '') {
+            if (genreFilters == '' && priceFilters == '' && statusFilters == '' && ratingFilters == '') {
               return book
             } else {
-              if (handleGenreSearch(book.genres) && handlePriceSearch(book.price) && handleStatusSearch(book.status)) {
+              if (handleGenreSearch(book.genres) && handlePriceSearch(book.price) && handleStatusSearch(book.status) && handleRatingSearch(book)) {
                 return book
               }
             }
@@ -245,26 +210,83 @@
       </template>
     </div>
     <div class='bottom-spacer' />
+    </div>
   </div>
-  </div>
-  <div id='right-div'>
-    <template v-if="type != 'Bestseller'">
-      <template v-if="type === 'Search'">
-        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="mangaGenreLinks" :books='searchedBooks' genreOf="Manga Genres" />
-        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="lightNovelsGenreLinks" :books='searchedBooks' genreOf="Light Novel Genres" />
-        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="westernNovelsGenreLinks" :books='searchedBooks' genreOf="Other Genres" />
+  <template v-if="windowWidth > 800">
+    <div id='price-div' class='white-div'>
+      <div class='div-header'>🟤 Price</div>
+      <div class="filtering-links">
+        <li
+          v-for="(link, index) in priceLinks"
+          :key="index"
+        >
+          <a @click="handleClickPrice(link, true)">
+            {{ link }} <span style="color: gray">({{ countPrices(link) }})</span><router-link></router-link>
+          </a>
+        </li>
+        <div class='d-flex w-100 mt-1' id='price-input-div'>
+          <span class='mt-1 mr-1'>$</span> <input v-model="priceOne" class='filter-input-tag w-25' min="0" type="number" id="price-from" name="price-from" />
+          <span class='ml-1 mt-1 mr-1'>- $</span> <input v-model="priceTwo" class='filter-input-tag w-25' min="0" type="number" id="price-to" name="price-to" />
+          <button @click="handleClickPrice(null, false)" class='filter-btn'><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id='rating-div' class='white-div'>
+      <div class='div-header'>🟤 Rating</div>
+      <div class='filtering-links'>
+        <li
+          v-for="(link, index) in ratingLinks"
+          :key="index"
+        >
+          <a v-if="index === 0" @click="handleClickRating(link, true)">
+            {{ link }} 
+            <span style="color: gray" v-if="type === 'Search'">({{ searchedBooks.length }})</span>
+            <span style="color: gray" v-else>({{ relevantBooks.length }})</span>
+            <router-link></router-link>
+          </a>
+          <a v-else @click="handleClickRating(link, true)">
+            {{ link }} <span style="color: gray">(0)</span><router-link></router-link>
+          </a>
+        </li>
+        <div class='d-flex w-100 mt-1' id='price-input-div'>
+          <span class='mt-1 mr-1'>*</span> <input v-model="ratingOne" class='filter-input-tag w-25' type="number" min="0" max="5" id="rating-from" name="rating-from" />
+          <span class='ml-1 mt-1 mr-1'>- *</span> <input v-model="ratingTwo" class='filter-input-tag w-25' type="number" min="0" max="5" id="rating-to" name="rating-to" />
+          <button @click='handleClickRating(null, false)' class='filter-btn'><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id='status-div' class='white-div'>
+      <div class='div-header'>🟤 Book Status</div>
+      <div class='filtering-links'>
+        <li
+          v-for="(link, index) in statusLinks"
+          :key="index"
+        >
+          <a @click="handleClickStatus(link)">
+            {{ link }} <span style="color: gray">({{ countStatus(link) }})</span><router-link></router-link>
+          </a>
+        </li>
+      </div>
+    </div>
+    <div id='right-div'>
+      <template v-if="type != 'Bestseller'">
+        <template v-if="type === 'Search'">
+          <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="mangaGenreLinks" :books='searchedBooks' genreOf="Manga Genres" />
+          <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="lightNovelsGenreLinks" :books='searchedBooks' genreOf="Light Novel Genres" />
+          <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="westernNovelsGenreLinks" :books='searchedBooks' genreOf="Other Genres" />
+        </template>
+        <template v-else>
+          <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="genresList" :books='relevantBooks' genreOf="Genres" />
+        </template>
       </template>
       <template v-else>
-        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="genresList" :books='relevantBooks' genreOf="Genres" />
+        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="mangaGenreLinks" :books='relevantBooks' genreOf="Manga Genres" />
+        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="lightNovelsGenreLinks" :books='relevantBooks' genreOf="Light Novel Genres" />
+        <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="westernNovelsGenreLinks" :books='relevantBooks' genreOf="Other Genres" />
       </template>
-    </template>
-    <template v-else>
-      <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="mangaGenreLinks" :books='relevantBooks' genreOf="Manga Genres" />
-      <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="lightNovelsGenreLinks" :books='relevantBooks' genreOf="Light Novel Genres" />
-      <RightGenres @clickGenre='handleClickGenre' :genreFilters="genreFilters" :genresList="westernNovelsGenreLinks" :books='relevantBooks' genreOf="Other Genres" />
-    </template>
-  <div class='bottom-spacer' />
-  </div>
+    <div class='bottom-spacer' />
+    </div>
+  </template>
 </div>
 </template>
 
@@ -313,6 +335,10 @@ export default {
       statusFilters: '',
       ratingFilters: '',
       timeFilters: '',
+      priceOne: null,
+      priceTwo: null,
+      ratingOne: null,
+      ratingTwo: null,
       bookViews: [
         { name: 'Bestsellers', to: '/books/bestsellers' },
         { name: 'Manga', to: '/books/manga' },
@@ -354,9 +380,9 @@ export default {
         'Discontinued'
       ],
       swiperOption: {
-        slidesPerView: 5,
+        slidesPerView: 5.7,
         spaceBetween: -100,
-        loop: true,
+        loop: false,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -377,6 +403,9 @@ export default {
     },
     genresList () {
       return this.type === 'Light Novel' ? this.lightNovelsGenreLinks : this.type === 'Manga' ? this.mangaGenreLinks : this.type === 'Western Novel' ? this.normalizedWesternNovelsGenreLinks : this.normalizedWesternNovelsGenreLinks
+    },
+    windowWidth () {
+      return this.$store.state.windowWidth;
     }
   },
   methods: {
@@ -540,11 +569,22 @@ export default {
         })
       }
     },
-    handleClickPrice (price) {
-      if (this.priceFilters === price) {
+    handleClickPrice (price, isLink) {
+      if (isLink && (this.priceOne !== null || this.priceTwo !== null)) {
+        this.priceFilters = price
+        this.priceOne = null
+        this.priceTwo = null
+        this.mainHeader = 'Search Results'
+      }
+      else if (!isLink && (this.priceOne !== null || this.priceTwo !== null)) {
+        this.priceFilters = '$' + this.priceOne + ' - $' + this.priceTwo
+        this.mainHeader = 'Search Results'
+      }
+      else if (isLink && this.priceFilters === price) {
         this.priceFilters = ''
         this.mainHeader = 'Latest Updates'
-      } else {
+      } 
+      else if (isLink && this.priceFilters !== price) {
         this.priceFilters = price
         this.mainHeader = 'Search Results'
       }
@@ -566,11 +606,27 @@ export default {
       }
       else return (price !== undefined && price >= limits[0] && price <= limits[1])
     },
-    handleClickRating (rating) {
-      if (this.ratingFilters === rating) {
-        this.ratingFilters = ''
-      } else {
+    handleClickRating (rating, isLink) {
+      if (isLink && (this.ratingOne !== null || this.ratingTwo !== null)) {
         this.ratingFilters = rating
+        this.ratingOne = null
+        this.ratingTwo = null
+        this.mainHeader = 'Search Results'
+      }
+      else if (!isLink && (this.priceOne !== null || this.priceTwo !== null)) {
+        this.ratingFilters = this.ratingOne + '* - ' + this.ratingTwo + '*'
+        this.mainHeader = 'Search Results'
+      }
+      else if (!isLink && this.ratingFilters === rating) {
+        this.ratingFilters = ''
+      } 
+      else if (!isLink && this.ratingFilters !== rating) {
+        this.ratingFilters = rating
+      }
+    },
+    handleRatingSearch (book) {
+      if (this.ratingFilters === '' || this.ratingFilters === '5*' || this.ratingOne === 5 || this.ratingTwo === 5) {
+        return book
       }
     },
     handleClickStatus (status) {
@@ -661,7 +717,7 @@ export default {
 
 <style>
 body {
-  background-color: #eeeeee;
+  background-color: #eeeeee !important;
 }
 </style>
 
@@ -674,14 +730,12 @@ body {
   padding: 10px 0 0 20px;
   text-align: left;
 }
-
 #books-toggle {
   top: 75px;
   height: 80px;
   background-color: lightblue;
   border: 2px solid #5bc0de;
 }
-
 #nav-view-output {
   top: 165px;
   height: 40px;
@@ -689,12 +743,10 @@ body {
   border: 2px solid gray;
   padding-top: 8px;
 }
-
 .white-div {
   position: absolute;
   background-color: white;
 }
-
 .white-div:before {
   content: "";
   background: rgb(161, 85, 34);
@@ -705,7 +757,6 @@ body {
   right: 0;
   top: 0;
 }
-
 .white-div:after {
   content: "";
   background: rgb(161, 85, 34);
@@ -716,7 +767,6 @@ body {
   right: 0;
   bottom: 0;
 }
-
 #popular-books {
   top: 215px;
   width: 78%;
@@ -728,7 +778,6 @@ body {
   color: rgb(161, 85, 34);
   font-weight: bold;
 }
-
 #popular-books:before {
   content: "";
   background: rgb(161, 85, 34);
@@ -739,7 +788,6 @@ body {
   position: absolute;
   right: 0;
 }
-
 #popular-books:after {
   content: "";
   background: rgb(161, 85, 34);
@@ -750,7 +798,6 @@ body {
   position: absolute;
   right: 0;
 }
-
 #top-cards-swiper {
   top: 240px;
   width: 78%;
@@ -758,20 +805,16 @@ body {
   right: 300px;
   height: 360px;
 }
-
 .swiper-slide {
   width: 60%;
   transform: translate(0, -50px);
 }
-
 .swiper-slide:nth-child(2n) {
   width: 40%;
 }
-
 .swiper-slide:nth-child(3n) {
   width: 20%;
 }
-
 #books-content {
   background-color: white;
   width: 60%;
@@ -780,7 +823,6 @@ body {
   right: 300px;
   top: 605px;
 }
-
 #books-content:before {
   content: "";
   background: rgb(161, 85, 34);
@@ -790,7 +832,6 @@ body {
   position: absolute;
   right: 0;
 }
-
 .div-header {
   padding-top: 10px;
   padding-left: 20px;
@@ -798,7 +839,6 @@ body {
   font-weight: bold;
   text-align: left;
 }
-
 .div-header:after {
   content: "";
   background: rgb(161, 85, 34);
@@ -809,51 +849,42 @@ body {
   right: 0;
   top: 40px;
 }
-
 #price-div {
   top: 605px;
   left: 50px;
   width: 240px;
   height: 220px;
 }
-
 .filtering-links {
   text-align: left;
   padding-top: 20px;
   padding-left: 20px;
 }
-
 .book-rows {
   padding-top: 20px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-
 .book-rows>* {
   flex: 1 1 240px;
 }
-
 .book-rows:nth-child(odd) {
   padding-left: 20px;
 }
-
 .filter-input-tag {
   background-color: #eeeeee;
 }
-
 .filter-btn {
   position: absolute;
   right: 20px;
 }
-
 #rating-div {
   top: 865px;
   left: 50px;
   width: 240px;
   height: 245px;
 }
-
 #status-div {
   top: 1150px;
   left: 50px;
@@ -861,7 +892,6 @@ body {
   height: auto;
   padding-bottom: 10px;
 }
-
 #right-div {
   display: flex;
   flex-direction: column;
@@ -871,14 +901,12 @@ body {
   height: auto;
   position: absolute;
 }
-
 .genres-div {
   position: relative;
   height: auto;
   margin-bottom: 30px;
   padding-bottom: 10px;
 }
-
 .bottom-spacer {
   min-height: 120px;
   height: 120px;

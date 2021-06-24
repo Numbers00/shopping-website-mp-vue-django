@@ -65,10 +65,13 @@
         </a>
       </span>
       <div class="hover-dropdown-content">
-        <template
-          v-for="(userView, index) in userViews"
-        >
-          <p :key="index" @click="$router.push({ name: userView.name })">{{ userView.name }}</p>
+        <template v-if="$store.state.isAuthenticated">
+          <p @click="$router.push({name: 'Profile'})">Profile</p>
+          <p @click="logout()">Logout</p>
+        </template>
+        <template v-else>
+          <p @click="$router.push({name: 'Login'})">Login</p>
+          <p @click="$router.push({name: 'Signup'})">Signup</p>
         </template>
       </div>
       </div>
@@ -79,6 +82,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'AppHeader',
   data () {
@@ -92,11 +97,6 @@ export default {
         { name: 'Cafe', to: '/cafe' },
         { name: 'Tutors', to: '/tutors' }
       ],
-      userViews: [
-        { name: 'Profile', to: '/profile' },
-        { name: 'Login', to: '/login' },
-        { name: 'Signup', to: '/signup' }
-      ],
       bookViews: [
         { name: 'Bestsellers', to: '/bestsellers' },
         { name: 'Manga', to: '/manga' },
@@ -107,6 +107,20 @@ export default {
   },
   mounted () {
     this.cart = this.$store.state.cart
+    console.log(this.$store.state.isAuthenticated)
+  },
+  methods: {
+    logout () {
+            axios.defaults.headers.common['Authorization'] = ''
+
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+            localStorage.removeItem('userid')
+
+            this.$store.commit('removeToken')
+
+            this.$router.push('/')
+        },
   },
   computed: {
       cartTotalLength() {

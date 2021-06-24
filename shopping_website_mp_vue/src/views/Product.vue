@@ -66,8 +66,13 @@
           <hr />
         </div>
         <div class="col-lg-5 col-12" style="text-align: left; max-height: 550px" id="payment">
-          <h1 class="inline"><sup id="symbol">$</sup></h1><h1 id="value" class="inline">{{ book.price }}</h1>
-          <button class="inline" id="convert" onclick="DollarToPHP()" style="float: right; border-radius: 5px; border: 1px solid gray;">Convert to PHP</button>
+          <h1 class="inline"><sup id="symbol"><span v-if="usdToggle">$</span><span v-if="phpToggle">₱</span></sup></h1><h1 id="value" class="inline">{{ book.price }}</h1>
+          <template v-if="usdToggle">
+          <button class="inline" id="convert" @click="convertToPHP" style="float: right; border-radius: 5px; border: 1px solid gray;">Convert to PHP</button>
+          </template>
+          <template v-if="phpToggle">
+          <button class="inline" id="convert" @click="convertToUSD" style="float: right; border-radius: 5px; border: 1px solid gray;">Convert to USD</button>
+          </template>
           <div class="row mb-4">
             <div class="col-9">
               <div class="buttons">
@@ -164,7 +169,6 @@
 <script>
 import axios from 'axios'
 import vueShowMoreText from 'vue-show-more-text'
-import {toast} from 'bulma-toast'
 
 export default {
   name: 'Product',
@@ -175,11 +179,15 @@ export default {
     return {
       book: {},
       author: {},
-      quantity: 1
+      quantity: 1,
+      usdToggle: true,
+      phpToggle: false
     }
   },
   mounted () {
     this.getBook()
+
+    document.title = 'Book | Code & Chill'
   },
   methods: {
     async getBook () {
@@ -196,14 +204,6 @@ export default {
         })
         .catch(error => {
             console.log(error)
-            toast({
-                message: 'Something went wrong. Please try again.',
-                type: 'is-danger',
-                dismissible: true,
-                pauseOnHover: true,
-                duration: 2000,
-                position: 'bottom-right',
-            })
         })
 
       await axios
@@ -213,14 +213,6 @@ export default {
         })
         .catch(error => {
             console.log(error)
-            toast({
-                message: 'Something went wrong. Please try again.',
-                type: 'is-danger',
-                dismissible: true,
-                pauseOnHover: true,
-                duration: 2000,
-                position: 'bottom-right',
-            })
         })
 
       this.$store.commit('setIsLoading', false)
@@ -243,16 +235,17 @@ export default {
             }
 
             this.$store.commit('addToCart', item)
-
-            toast({
-                message: 'The book was added to the cart',
-                type: 'is-success',
-                dismissible: true,
-                pauseOnHover: true,
-                duration: 2000,
-                position: 'bottom-right',
-            })
-        }
+    },
+    convertToPHP () {
+      this.book.price = (Math.round((this.book.price * 50)*100)/100).toFixed(2)
+      this.usdToggle = false
+      this.phpToggle = true
+    },
+    convertToUSD () {
+      this.book.price = (Math.round((this.book.price / 50)*100)/100).toFixed(2)
+      this.usdToggle = true
+      this.phpToggle = false
+    },
   }
 }
 </script>

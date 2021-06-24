@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Homepage from '../views/Homepage.vue'
+import store from '../store'
+
 
 Vue.use(VueRouter)
 
@@ -111,7 +113,8 @@ const routes = [
   {
     path: '/confirmation',
     name: 'Confirmation',
-    component: () => import('../views/Confirmation.vue')
+    component: () => import('../views/Confirmation.vue'),
+    meta: {requireLogin: true}
   },
   {
     path: '/error',
@@ -121,12 +124,21 @@ const routes = [
   {
     path: '/payment',
     name: 'Payment',
-    component: () => import('../views/Payment.vue')
+    component: () => import('../views/Payment.vue'),
+    meta: {requireLogin: true}
   },
   {
     path: '/summary',
     name: 'Summary',
-    component: () => import('../views/Summary.vue')
+    component: () => import('../views/Summary.vue'),
+    props: true,
+    meta: {requireLogin: true}
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue'),
+    meta: {requireLogin: true}
   },
 ]
 
@@ -134,6 +146,19 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length === 0) {
+    next({path: '/error'})
+  }
+  else {
+    if (to.matched.some(record => record.meta.requireLogin) && !store.state.isAuthenticated) {
+      next({path: '/login', query: {to: to.path}})
+    } else {
+      next()
+    }
+  }
 })
 
 export default router

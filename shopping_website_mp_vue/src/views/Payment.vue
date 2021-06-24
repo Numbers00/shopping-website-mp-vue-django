@@ -44,16 +44,23 @@
               <div class="tab-content">
                 <!-- credit card info-->
                 <div id="credit-card" v-if="creditToggle" class="tab-pane fade show active pt-3">
-                  <form role="form" onsubmit="event.preventDefault()">
+                  <form role="form" @submit.prevent="submitForm">
                     <div class="form-group mb-3"> <label for="username">
                         <h6>Card Owner</h6>
-                      </label> <input type="text" name="username" placeholder="Card Owner Name" required
+                      </label> 
+                      <input type="text" v-model="paymentCredentials.fullName" name="username" placeholder="Card Owner Name" required
                         class="form-control "> </div>
+                    <div class="form-group mb-3"> 
+                      <label for="username">
+                        <h6>Complete Address</h6>
+                      </label> 
+                      <input type="text" v-model="paymentCredentials.address" name="compAddress" placeholder="Street Address, City, Province, Country" class="form-control" required> 
+                    </div>
                     <div class="form-group mb-3"> <label for="cardNumber">
                         <h6>Card Number</h6>
                       </label>
-                      <div class="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number"
-                          class="form-control " required>
+                      <div class="input-group"> 
+                        <input type="text" v-model="paymentCredentials.cardNumber" name="cardNumber" placeholder="Valid card number" class="form-control " required>
                         <div class="input-group-append"> <span class="input-group-text text-muted"> <i
                               class="fa fa-cc-visa mx-1"></i> <i class="fa fa-cc-mastercard mx-1"></i> <i
                               class="fa fa-cc-amex mx-1"></i> </span> </div>
@@ -64,8 +71,8 @@
                         <div class="form-group mb-3"> <label><span class="hidden-xs">
                               <h6>Expiration Date</h6>
                             </span></label>
-                          <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control"
-                              required> <input type="number" placeholder="YY" name="" class="form-control" required>
+                          <div class="input-group"> <input type="number" v-model="paymentCredentials.expirationMM" placeholder="MM" name="" class="form-control"
+                              required> <input type="number" placeholder="YY" v-model="paymentCredentials.expirationYY" name="" class="form-control" required>
                           </div>
                         </div>
                       </div>
@@ -73,12 +80,13 @@
                         <div class="form-group mb-4"> <label data-toggle="tooltip"
                             title="Three digit CV code on the back of your card">
                             <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                          </label> <input type="text" required class="form-control"> </div>
+                          </label> <input type="text" v-model="paymentCredentials.CVV" required class="form-control"> </div>
                       </div>
                     </div>
-                    <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"
-                        style="float: right;"><a href="summary.html" style="text-decoration: none; color: inherit;">
-                          Confirm Payment</a> </button>
+                    <div class="card-footer"> 
+                      <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm" style="float: right;">
+                          Confirm Payment 
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -86,37 +94,40 @@
               <!-- Paypal info -->
               <div id="COD" v-if="cashToggle" class="tab-pane fade pt-3">
                 <h6 class="pb-2">Kindly provide your details below.</h6>
-                <form role="form" onsubmit="event.preventDefault()">
+                <form role="form" @submit.prevent="submitForm">
                   <div class="form-group mb-3"> 
                     <label for="username">
                       <h6>Full Name</h6>
                     </label> 
-                    <input type="text" name="username" placeholder="Sheldon Cooper" class="form-control" required> 
+                    <input type="text" v-model="paymentCredentials.fullName" name="username" placeholder="Sheldon Cooper" class="form-control" required> 
                   </div>
                   <div class="form-group mb-3"> 
                     <label for="username">
                       <h6>Complete Address</h6>
                     </label> 
-                    <input type="text" name="cardNumber" placeholder="Street Address, City, Province, Country" class="form-control" required> 
+                    <input type="text" v-model="paymentCredentials.address" name="compAddress" placeholder="Street Address, City, Province, Country" class="form-control" required> 
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group mb-3"> <label><span class="hidden-xs">
                             <h6>Contact Number</h6>
                           </span></label>
-                        <div class="input-group"> <input type="number" placeholder="09457325869" name=""
+                        <div class="input-group"> 
+                          <input type="number" v-model="paymentCredentials.phone" placeholder="09457325869" name=""
                             class="form-control" required> </div>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group mb-4"> <label>
-                          <h6>Email Address</h6>
-                        </label> <input type="text" required class="form-control" placeholder="someone@gmail.com"> </div>
+                          <h6>Cash in Hand (Php)</h6>
+                        </label> 
+                        <input type="number" v-model="paymentCredentials.cashInHand" required class="form-control" placeholder=1000> </div>
                     </div>
                   </div>
-                  <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"
-                      style="float: right;"><a @click="$router.push({ name: 'Summary' })" style="text-decoration: none; color: inherit;">
-                        Confirm Payment</a> </button>
+                  <div class="card-footer"> 
+                    <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm" style="float: right;">
+                        Confirm Payment 
+                    </button>
                   </div>
                 </form>
               </div> <!-- End -->
@@ -140,8 +151,14 @@ export default {
     data () {
       return {
         creditToggle: true,
-        cashToggle: false
+        cashToggle: false,
+        paymentCredentials: {}
       }
+    },
+    mounted () {
+      this.paymentCredentials = this.$store.state.paymentCredentials
+
+      document.title = 'Payment | Code & Chill'
     },
     methods: {
       handleClickCredit () {
@@ -155,6 +172,19 @@ export default {
           this.cashToggle = true
           this.creditToggle = false
         }
+      },
+      updatePaymentCredentials () {
+       localStorage.setItem('paymentCredentials', JSON.stringify(this.$store.state.paymentCredentials))
+      },
+      submitForm () {
+        if (this.creditToggle) {
+          if (this.paymentCredentials.cardNumber.length <= 16) {
+            this.updatePaymentCredentials()
+
+            this.$router.push({name: 'Summary', params: { viaCredit: this.creditToggle, fullName: this.fullName, address: this.address, phone: this.phone} })
+          }
+        }
+        else this.$router.push({name: 'Summary', params: { viaCredit: this.creditToggle, fullName: this.fullName, address: this.address, phone: this.phone} })
       }
     }
 }

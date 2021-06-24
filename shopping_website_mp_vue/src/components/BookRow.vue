@@ -46,8 +46,6 @@
 </template>
 
 <script>
-import '@/assets/css/bestsellers.css'
-
 import vueShowMoreText from 'vue-show-more-text'
 import BookCard from './BookCard'
 
@@ -81,23 +79,30 @@ export default {
   computed: {
     limitRowWidth () {
       return 'max-width: ' + this.maxRowWidth
+    },
+    windowWidth () {
+    return this.$store.state.windowWidth;
     }
   }
 }
 </script>
 
-<style>
+<style scoped src='@/assets/css/bestsellers.css'></style>
+
+<style scoped>
 #book-row {
   display: flex;
   flex-direction: row;
-  height: 300px;
-  min-height: 300px;
   max-height: 300px;
+  height: 300px;
 }
 
 #right-text {
   display: flex;
   flex-direction: column;
+  max-width: 700px;
+  min-width: 700px;
+  width: 700px;
 }
 
 #book-params {

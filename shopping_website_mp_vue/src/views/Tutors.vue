@@ -80,7 +80,8 @@
                   I like learning new languages and playing artsy games.
                   Please support our project by having fun with it.
                   <br>
-                  C4...
+                  <br>
+                  Let the show begin!
                 </p>
               </div>
             </div>
@@ -151,5 +152,15 @@
   </div>
 </div>
 </template>
+
+<script>
+
+export default {
+  name: 'Tutors',
+  mounted () {
+    document.title = 'Tutors | Code & Chill'
+  }
+}
+</script>
 
 <style scoped src='@/assets/css/tutors.css'></style>
